@@ -18,7 +18,7 @@ TDD using Mockito.
 ## Running Using Docker Compose
 - Download or clone the repository and ```cd``` to the repo and run the command:
 - ```docker-compose up --build```
-- RabbitMQ and Consult should not be running locally as it will create conflict
+- RabbitMQ runs on port 5672 and Consult runs on port 8502 so be informed if they are already running locally at the same port as it will cause port already in use problem.
 - navigate your browser to http://localhost:3000/ 
 - Before searching for connection flights, new Airports, and Flight Schedules need be to created first
 
