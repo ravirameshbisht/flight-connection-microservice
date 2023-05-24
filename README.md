@@ -15,6 +15,12 @@ TDD using Mockito.
 ## Prerequisites
 - Java SDK (version 11 or higher)
 
+## Running Using Docker Compose
+- Download or clone the repository and cd to the repo and run the command:
+- docker-compose up --build
+- navigate your browser to http://localhost:3000/ 
+- Before you search for connection flights, you need to add  Airports, and Flight Schedules 
+
 ## Installation
 1. Clone the repository or download and extract the archive file to your local directory.
 2. Build each SpringBoot microservice by running the command ```./gradlew clean bootJar```. This will create a modern cloud native fully self-contained JAR file.
