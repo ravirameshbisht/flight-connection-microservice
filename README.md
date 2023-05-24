@@ -16,10 +16,11 @@ TDD using Mockito.
 - Java SDK (version 11 or higher)
 
 ## Running Using Docker Compose
-- Download or clone the repository and cd to the repo and run the command:
-- docker-compose up --build
+- Download or clone the repository and ```cd``` to the repo and run the command:
+- ```docker-compose up --build```
+- RabbitMQ and Consult should not be running locally as it will create conflict
 - navigate your browser to http://localhost:3000/ 
-- Before you search for connection flights, you need to add  Airports, and Flight Schedules 
+- Before searching for connection flights, new Airports, and Flight Schedules need be to created first
 
 ## Installation
 1. Clone the repository or download and extract the archive file to your local directory.
