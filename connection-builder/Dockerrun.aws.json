@@ -1,0 +1,13 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "temesgengirmay/connection-builder",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 8081
+    }
+  ],
+  "Logging": "/var/log/app"
+}

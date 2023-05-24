@@ -1,0 +1,13 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "temesgengirmay/master-data",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 8082
+    }
+  ],
+  "Logging": "/var/log/app"
+}

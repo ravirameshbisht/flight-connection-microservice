@@ -1,0 +1,41 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: master-data-service
+          uri: lb://master-data-service/
+          #uri: http://localhost:8082/
+          #uri: master-data-service:8082/
+          predicates:
+           - Path=/master-data/**
+        - id: connection-builder-service
+          uri: lb://connection-builder-service/
+          #uri: http://localhost:8081/
+          #uri: connection-builder-service:8081/
+          predicates:
+            - Path=/connection-builder-airports/**,/connection-builder/**,/connection-builder-schedules/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedHeaders:
+              - "*"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "OPTIONS"
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods: GET,POST
+# Uncomment the configuration below if you want to enable route matching logs
+#logging:
+#  level:
+#    org.springframework.cloud.gateway.handler.predicate: trace
+
