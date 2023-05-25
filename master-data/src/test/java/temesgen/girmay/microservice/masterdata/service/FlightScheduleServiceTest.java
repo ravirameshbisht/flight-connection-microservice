@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.time.LocalTime;
 
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -71,17 +72,22 @@ class FlightScheduleServiceTest {
         //given
         LocalTime departureTime = LocalTime.of(11, 45,0 );
         LocalTime arrivalTime = LocalTime.of(5, 18,0 );
-        FlightScheduleDTO flightScheduleDTO = new FlightScheduleDTO("519", "DIA", "DXB", departureTime, arrivalTime);
+        Airport departurAirport = new Airport(1L, "DXB", "Dubai International Airport", "Dubai");
+        Airport arrivalAirport = new Airport(2L, "DIA", "Doha International Airport", "Doha");
+        FlightScheduleDTO flightScheduleDTO = new FlightScheduleDTO("519",
+                "DIA", "DXB", departureTime, arrivalTime);
+        FlightSchedule flightSchedule = new FlightSchedule(1L, "519", departurAirport, arrivalAirport, departureTime, arrivalTime);
+        given(flightScheduleRepository.saveAndFlush(any())).willReturn(flightSchedule);
 
         //when
-        FlightSchedule flightSchedule = this.flightScheduleService.addFlightSchedule(flightScheduleDTO);
+        FlightSchedule savedFlightSchedule = flightScheduleService.addFlightSchedule(flightScheduleDTO);
 
         //then
-        Assertions.assertNotNull(flightSchedule);
-        Assertions.assertNotNull(flightSchedule.getId());
-        Assertions.assertEquals(flightSchedule.getDepartureAirport().getAirportCode(), "DIA" );
-        Assertions.assertEquals(flightSchedule.getArrivalAirport().getAirportCode(), "DXB");
-        Assertions.assertEquals(flightSchedule.getFlightNumber(), "519");
+        Assertions.assertNotNull(savedFlightSchedule);
+        Assertions.assertNotNull(savedFlightSchedule.getId());
+        Assertions.assertEquals(savedFlightSchedule.getDepartureAirport().getAirportCode(), "DXB" );
+        Assertions.assertEquals(savedFlightSchedule.getArrivalAirport().getAirportCode(), "DIA");
+        Assertions.assertEquals(savedFlightSchedule.getFlightNumber(), "519");
     }
 
 }
