@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "airport")
 public class Airport {
     @Id
+    @GeneratedValue
     private Long id;
     @Column(name = "airport_code", length = 3, unique = true, nullable = false)
     private String airportCode;
