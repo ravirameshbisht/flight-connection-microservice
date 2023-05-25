@@ -11,6 +11,7 @@ import java.util.Date;
 public class FlightSchedule {
 
     @Id
+    @GeneratedValue
     private Long id;
     @Column(name = "flight_number", unique = true, nullable = false)
     private String flightNumber;
