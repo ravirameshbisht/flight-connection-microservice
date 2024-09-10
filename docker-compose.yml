@@ -18,48 +18,48 @@ services:
         networks:
             - microservices
       
-    connection-builder-service:
-        build: ./connection-builder
-        environment:
-            - SPRING_CLOUD_CONSUL_HOST=consul
-        depends_on:
-            - rabbitmq-dev
-            - consul-dev
-        restart: on-failure
-        ports:
-            - 8081:8081
-        networks:
-            - microservices
+    # connection-builder-service:
+    #     build: ./connection-builder
+    #     environment:
+    #         - SPRING_CLOUD_CONSUL_HOST=consul
+    #     depends_on:
+    #         - rabbitmq-dev
+    #         - consul-dev
+    #     restart: on-failure
+    #     ports:
+    #         - 8081:8081
+    #     networks:
+    #         - microservices
             
-    master-data-service:
-        build: ./master-data
-        environment:
-            - SPRING_CLOUD_CONSUL_HOST=consul
-        depends_on:
-            - rabbitmq-dev
-            - consul-dev
-        restart: on-failure
-        ports:
-            - 8082:8082
-        networks:
-            - microservices
+    # master-data-service:
+    #     build: ./master-data
+    #     environment:
+    #         - SPRING_CLOUD_CONSUL_HOST=consul
+    #     depends_on:
+    #         - rabbitmq-dev
+    #         - consul-dev
+    #     restart: on-failure
+    #     ports:
+    #         - 8082:8082
+    #     networks:
+    #         - microservices
             
-    gateway:
-        build: ./gateway
-        environment:
-            - SPRING_CLOUD_CONSUL_HOST=consul
-        depends_on:
-            - rabbitmq-dev
-            - consul-dev
-        ports:
-            - 8000:8000
-        networks:
-            - microservices
+    # gateway:
+    #     build: ./gateway
+    #     environment:
+    #         - SPRING_CLOUD_CONSUL_HOST=consul
+    #     depends_on:
+    #         - rabbitmq-dev
+    #         - consul-dev
+    #     ports:
+    #         - 8000:8000
+    #     networks:
+    #         - microservices
             
-    frontend:
-        build: frontend-react-service
-        ports:
-            - 3000:80
+    # frontend:
+    #     build: frontend-react-service
+    #     ports:
+    #         - 3000:80
             
 networks:
   microservices:

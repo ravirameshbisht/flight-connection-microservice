@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 public class FlightSchedule {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "flight_number", unique = true, nullable = false)
     private String flightNumber;

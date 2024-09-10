@@ -2,6 +2,9 @@ server:
   port: 8000
 
 spring:
+  web:
+    cors:
+      allowed-origins: http://localhost:3000
   application:
     name: gateway
   cloud:

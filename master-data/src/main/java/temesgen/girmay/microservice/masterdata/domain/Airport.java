@@ -7,7 +7,7 @@ import java.util.Objects;
 @Table(name = "airport")
 public class Airport {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "airport_code", length = 3, unique = true, nullable = false)
     private String airportCode;
